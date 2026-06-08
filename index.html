@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic website of Shankha Shubhra Mukherjee, Ph.D. Candidate in Computer Science and Engineering at the University of Notre Dame." />
+  <meta name="author" content="Shankha Shubhra Mukherjee" />
+  <title>Shankha Shubhra Mukherjee</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --accent: #0c2340;
+      --accent-2: #b78900;
+      --accent-soft: #f1e5bf;
+      --border: #e4e8ef;
+      --shadow: 0 18px 45px rgba(12, 35, 64, 0.09);
+      --maxw: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(183, 137, 0, 0.12), transparent 32rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 28%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(92%, var(--maxw));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 5.2rem 0 2.2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.75fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.38rem 0.82rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 5vw, 4.55rem);
+      margin-bottom: 1rem;
+      letter-spacing: -0.045em;
+      color: var(--accent);
+    }
+
+    .lead {
+      font-size: 1.13rem;
+      color: var(--muted);
+      max-width: 68ch;
+      margin-bottom: 0;
+    }
+
+    .hero-card, .section-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 1rem;
+    }
+
+    .portrait {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .quick-facts {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.72rem;
+    }
+
+    .fact {
+      padding: 0.82rem 0.95rem;
+      border-radius: 16px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      font-size: 0.94rem;
+    }
+
+    .fact strong {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 1rem 0 2rem;
+      scroll-margin-top: 5rem;
+    }
+
+    .section-card {
+      padding: clamp(1.35rem, 3vw, 2.05rem);
+    }
+
+    .section-title {
+      margin-bottom: 1rem;
+      font-size: clamp(1.45rem, 3vw, 1.95rem);
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .section-kicker {
+      margin: -0.25rem 0 1.25rem;
+      color: var(--muted);
+      max-width: 76ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .item {
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fcfcfd;
+    }
+
+    .item h3 {
+      font-size: 1.04rem;
+      margin-bottom: 0.42rem;
+      color: var(--accent);
+    }
+
+    .item p {
+      margin: 0.35rem 0 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      border-radius: 999px;
+      padding: 0.35rem 0.72rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.75rem;
+      padding: 0.78rem 1.08rem;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid var(--border);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(12, 35, 64, 0.10);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover { color: white; }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+    }
+
+    .btn-small {
+      min-height: auto;
+      padding: 0.52rem 0.82rem;
+      font-size: 0.88rem;
+    }
+
+    .list-clean {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .pub-list {
+      display: grid;
+      gap: 0.95rem;
+      counter-reset: pubs;
+    }
+
+    .publication {
+      counter-increment: pubs;
+      position: relative;
+      padding-left: 3.2rem;
+    }
+
+    .publication::before {
+      content: counter(pubs);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 0.82rem;
+    }
+
+    .status {
+      display: inline-flex;
+      margin-left: 0.35rem;
+      border-radius: 999px;
+      background: rgba(183, 137, 0, 0.14);
+      color: #6b4c00;
+      padding: 0.12rem 0.48rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      vertical-align: middle;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .link-tile {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface-soft);
+    }
+
+    .contact-line {
+      margin: 0.45rem 0;
+    }
+
+    .email-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      color: var(--text);
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.12rem 0.4rem;
+      white-space: nowrap;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .publication {
+        padding-left: 1.1rem;
+      }
+
+      .publication::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Shankha Shubhra Mukherjee</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#talks">Talks</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">Ph.D. Candidate · University of Notre Dame</div>
+          <h1>Shankha Shubhra Mukherjee</h1>
+          <p class="lead">
+            I am a Ph.D. candidate in <strong>Computer Science and Engineering</strong> at the
+            <strong>University of Notre Dame</strong>, advised by <strong>Erin Wolf Chambers</strong>.
+            My research develops algorithms and mathematical tools for
+            <strong>computational topology</strong>, <strong>computational geometry</strong>, and
+            <strong>topological data analysis</strong>, with applications to shape analysis,
+            geometric machine learning, scientific computing, and scalable TDA.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#publications">View Publications</a>
+            <a class="btn btn-secondary" href="https://drive.google.com/file/d/1f2dpp6Se7hrmXdMvkMWTX6ke3XfrxnwV/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download CV</a>
+            <button class="btn btn-secondary" type="button" id="copy-email" onclick="copyEmail()">Copy Email</button>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Profile summary">
+          <img class="portrait" src="assets/headshot.jpg" alt="Portrait of Shankha Shubhra Mukherjee" />
+          <div class="quick-facts">
+            <div class="fact"><strong>Affiliation:</strong> Department of Computer Science and Engineering, University of Notre Dame</div>
+            <div class="fact"><strong>Advisor:</strong> Erin Wolf Chambers</div>
+            <div class="fact"><strong>Office:</strong> 150C Fitzpatrick Hall of Engineering</div>
+            <div class="fact"><strong>Email:</strong> <span class="email-text">smukher4 [at] nd [dot] edu</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container section-card">
+        <h2 class="section-title">About</h2>
+        <p>
+          My work sits at the intersection of algorithms, geometry, topology, and data analysis.
+          I am interested in how topological and geometric structure can be represented, computed,
+          visualized, and used in robust learning pipelines. In my current research, I study objects
+          such as persistent homology, Reeb graphs and Reeb transforms, symmetry sets, vineyards,
+          and monodromy-based signatures.
+        </p>
+        <p>
+          Before Notre Dame, I completed a B.Tech. in Electronics and Communication Engineering at
+          Jalpaiguri Government Engineering College in India. My earlier research also included work on
+          cybersecurity, cryptography, blockchain systems, decentralized data sharing, and graph-based
+          privacy/authentication systems.
+        </p>
+        <div class="tag-row" aria-label="Research keywords">
+          <span class="tag">Computational Topology</span>
+          <span class="tag">Computational Geometry</span>
+          <span class="tag">Topological Data Analysis</span>
+          <span class="tag">Algorithms</span>
+          <span class="tag">Shape Analysis</span>
+          <span class="tag">Geometric ML</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container section-card">
+        <h2 class="section-title">Research</h2>
+        <p class="section-kicker">
+          I design mathematically grounded methods for extracting geometric and topological structure
+          from complex data, with emphasis on correctness, stability, complexity, and implementability.
+        </p>
+        <div class="grid grid-3">
+          <div class="item">
+            <h3>Computational Topology &amp; TDA</h3>
+            <p class="muted">
+              Algorithms and theoretical tools for persistent homology, Reeb graphs, Reeb transforms,
+              vineyards, and related structures used to summarize complex data.
+            </p>
+          </div>
+          <div class="item">
+            <h3>Geometry-Aware Data Analysis</h3>
+            <p class="muted">
+              Topology-inspired features for shape classification and robust learning, including
+              monodromy-based signatures for persistence data.
+            </p>
+          </div>
+          <div class="item">
+            <h3>Algorithms, Visualization &amp; Systems</h3>
+            <p class="muted">
+              Translation of mathematical constructions into implementable algorithms, visual tools,
+              and experimental pipelines using Python, C/C++, and mathematical computing tools.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container section-card">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="grid grid-2">
+          <div class="item">
+            <h3>Braid Signatures of Persistence <span class="status">In preparation</span></h3>
+            <p class="muted">
+              Developing monodromy-inspired features for persistence data, motivated by robust shape
+              classification and interpretable learning.
+            </p>
+          </div>
+          <div class="item">
+            <h3>The Reeb Transform <span class="status">Submitted</span></h3>
+            <p class="muted">
+              Studying Reeb-graph-based transforms for encoding shape and topological information in
+              forms suitable for algorithmic analysis.
+            </p>
+          </div>
+          <div class="item">
+            <h3>Bouquet <span class="status">EuroCG 2026</span></h3>
+            <p class="muted">
+              A visualization tool for symmetry sets and vineyards, supporting exploration of geometric
+              and topological structure.
+            </p>
+          </div>
+          <div class="item">
+            <h3>Web3DB</h3>
+            <p class="muted">
+              A decentralized relational DBMS architecture with blockchain-based fine-grained access
+              control, developed as part of earlier work in secure and decentralized data sharing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container section-card">
+        <h2 class="section-title">Selected Publications &amp; Manuscripts</h2>
+        <div class="pub-list">
+          <div class="item publication">
+            <h3>Bouquet: A Visualization Tool for Symmetry Sets and Vineyards</h3>
+            <p><strong>Authors:</strong> Erin Wolf Chambers, Christopher Fillmore, Shankha Shubhra Mukherjee, Rohit Roy, Elizabeth Stephenson, Mathijs Wintraecken.</p>
+            <p class="muted"><em>EuroCG 2026.</em> Authors listed alphabetically.</p>
+          </div>
+          <div class="item publication">
+            <h3>The Reeb Transform</h3>
+            <p><strong>Authors:</strong> Erin Wolf Chambers, Shankha Shubhra Mukherjee, Katharine Turner.</p>
+            <p class="muted"><em>Submitted to La Matematica.</em> Authors listed alphabetically.</p>
+          </div>
+          <div class="item publication">
+            <h3>The Symmetry Set as a Knitting Pattern for Vineyards</h3>
+            <p><strong>Authors:</strong> Erin Chambers, Christopher Fillmore, Shankha Shubhra Mukherjee, Rohit Roy, Elizabeth Stephenson, Mathijs Wintraecken.</p>
+            <p class="muted"><em>Submitted to SODA 2027.</em> Authors listed alphabetically.</p>
+          </div>
+          <div class="item publication">
+            <h3>Braid Signatures of Persistence: Monodromy Features for Shape Classification and Robust Learning</h3>
+            <p><strong>Authors:</strong> Erin Chambers, Mattie Ji, Shankha Shubhra Mukherjee.</p>
+            <p class="muted"><em>In preparation.</em> Authors listed alphabetically.</p>
+          </div>
+          <div class="item publication">
+            <h3>Web3DB: Towards Decentralized Relational DBMS with Blockchain-Based Access Control</h3>
+            <p><strong>Authors:</strong> Shankha Shubhra Mukherjee, Wenyi Tang, Gustavo Aniceto, Jake Chandler, WenZhan Song, Taeho Jung.</p>
+            <p class="muted"><em>IEEE GBC 2025.</em></p>
+          </div>
+          <div class="item publication">
+            <h3>GrAC: Graph-Based Anonymous Credentials From Identity Graphs on Blockchain</h3>
+            <p><strong>Authors:</strong> Wenyi Tang, Shankha Shubhra Mukherjee, Seongho Park, Changhao Chenli, Hyonok Oh, Jihye Kim, Taeho Jung.</p>
+            <p class="muted"><em>IEEE Blockchain 2024.</em></p>
+          </div>
+          <div class="item publication">
+            <h3>PrivHChain: Monitoring the Supply Chain of Controlled Substances with Privacy-Preserving Hierarchical Blockchain</h3>
+            <p><strong>Authors:</strong> Hyeonbum Lee, Kyuhwan Lee, Wenyi Tang, Shankha Shubhra Mukherjee, Jae Hong Seo, Taeho Jung.</p>
+            <p class="muted"><em>IEEE ICBC 2024.</em></p>
+          </div>
+          <div class="item publication">
+            <h3>SCAFT: A Scalable Crowd-Assisted Fair Trading Protocol</h3>
+            <p><strong>Authors:</strong> Changhao Chenli, Wenyi Tang, Shankha Shubhra Mukherjee, Taeho Jung.</p>
+            <p class="muted"><em>IEEE Blockchain 2024.</em></p>
+          </div>
+          <div class="item publication">
+            <h3>Trac2ZChain: Trackability and Traceability of Graph Data in Blockchain with Linkage Privacy</h3>
+            <p><strong>Authors:</strong> Wenyi Tang, Shankha Shubhra Mukherjee, Hyeonbum Lee, Changhao Chenli, Jae Hong Seo, Taeho Jung.</p>
+            <p class="muted"><em>Under review in ACM Transactions on Privacy and Security.</em></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="talks">
+      <div class="container section-card">
+        <h2 class="section-title">Talks, Teaching &amp; Community</h2>
+        <div class="grid grid-2">
+          <div class="item">
+            <h3>Selected Talks</h3>
+            <ul class="list-clean muted">
+              <li>Selected talk, Young Researchers Forum, Symposium on Computational Geometry, 2026.</li>
+              <li>Selected talk, Young Researchers Forum, Symposium on Computational Geometry, 2025.</li>
+              <li>Selected talk, 11th Conference in Algebraic Topology: Methods, Computation, &amp; Science, 2025.</li>
+              <li>Invited talk, Graduate Student Seminar, Department of Mathematics, University of Tennessee, Knoxville, Apr. 2025.</li>
+              <li>Invited talk, Geometry &amp; Topology in Machine Learning Seminar, 2025.</li>
+            </ul>
+          </div>
+          <div class="item">
+            <h3>Teaching &amp; Service</h3>
+            <ul class="list-clean muted">
+              <li>Graduate Teaching Assistant, University of Notre Dame, Department of Computer Science and Engineering.</li>
+              <li>CSE 40113 Design and Analysis of Algorithms.</li>
+              <li>CSE 40622 Cryptography.</li>
+              <li>Peer reviewer: EAI SecureComm 2024; IEEE ICBC 2024.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="links">
+      <div class="container section-card">
+        <h2 class="section-title">Links</h2>
+        <div class="links-grid">
+          <a class="link-tile" href="https://scholar.google.com/citations?user=9gFoJgwAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a class="link-tile" href="https://www.linkedin.com/in/shankha-shubhra-mukherjee-3aba88198/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="link-tile" href="https://drive.google.com/file/d/1f2dpp6Se7hrmXdMvkMWTX6ke3XfrxnwV/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+          <a class="link-tile" href="https://github.com/shankhasm" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container section-card">
+        <h2 class="section-title">Contact</h2>
+        <p class="contact-line"><strong>Office:</strong> 150C Fitzpatrick Hall of Engineering, University of Notre Dame</p>
+        <p class="contact-line"><strong>Email:</strong> <span class="email-text">smukher4 [at] nd [dot] edu</span></p>
+        <p class="muted">
+          I am always happy to hear from students and researchers interested in computational topology,
+          computational geometry, topological data analysis, and related algorithmic problems.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Shankha Shubhra Mukherjee · Built with HTML/CSS and hosted on GitHub Pages
+    </div>
+  </footer>
+
+  <script>
+    function copyEmail() {
+      const chars = [115, 109, 117, 107, 104, 101, 114, 52, 64, 110, 100, 46, 101, 100, 117];
+      const email = String.fromCharCode(...chars);
+      const button = document.getElementById('copy-email');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => {
+          button.textContent = 'Email Copied';
+          setTimeout(() => button.textContent = 'Copy Email', 1800);
+        }).catch(() => {
+          button.textContent = 'smukher4 [at] nd [dot] edu';
+        });
+      } else {
+        button.textContent = 'smukher4 [at] nd [dot] edu';
+      }
+    }
+  </script>
+</body>
+</html>
